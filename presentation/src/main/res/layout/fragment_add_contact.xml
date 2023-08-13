@@ -111,7 +111,8 @@
                         android:id="@+id/editTextSecondPhoneNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="phone"
+                        android:maxLines="1"
                         android:text="@{contact.secondNumber}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -155,7 +156,7 @@
                         android:id="@+id/editTextCompanyName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.company}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -176,7 +177,7 @@
                         android:id="@+id/editTextAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.address}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -197,7 +198,7 @@
                         android:id="@+id/editTextCity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.city}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,7 +219,7 @@
                         android:id="@+id/editTextCounty"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.county}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -239,7 +240,7 @@
                         android:id="@+id/editTextState"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.state}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -260,7 +261,7 @@
                         android:id="@+id/editTextZip"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
+                        android:inputType="textAutoComplete"
                         android:text="@{contact.zip}" />
                 </com.google.android.material.textfield.TextInputLayout>
 
