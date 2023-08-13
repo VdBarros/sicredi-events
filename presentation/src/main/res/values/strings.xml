@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="image_phone_description">Image of a Phone, when clicked can open the call app.</string>
+    <string name="image_email_description">Image of an email, when clicked can open the email app</string>
+    <string name="hint_first_name">First name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_phone">Phone number</string>
+    <string name="hint_email">Email Address</string>
+    <string name="error_email_invalid">Invalid Email Address</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_import_csv">Import from .csv</string>
+    <string name="menu_export_csv">Export to .csv</string>
+    <string name="intent_open_csv">Select .csv file</string>
+    <string name="intent_export_csv">Share CSV File</string>
+    <string name="hint_phone_2">Second Phone number</string>
+    <string name="button_save">Save</string>
+    <string name="hint_company">Company name</string>
+    <string name="hint_address">Address</string>
+    <string name="hint_city">City</string>
+    <string name="hint_county">County</string>
+    <string name="hint_state">State</string>
+    <string name="hint_zip">Postal code (Zip Address)</string>
+    <string name="intent_email">Choose your email</string>
+</resources>
