@@ -8,6 +8,7 @@ import com.vinibarros.sicredievents.R
 import com.vinibarros.sicredievents.databinding.ActivityLoginBinding
 import com.vinibarros.sicredievents.domain.model.User
 import com.vinibarros.sicredievents.graph.scope.ViewModelProviderFactory
+import com.vinibarros.sicredievents.util.extensions.isValidEmail
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -59,14 +60,18 @@ class LoginMainActivity : AppCompatActivity(), HasAndroidInjector {
     private fun setupUi() {
         with(binding) {
             buttonSave.setOnClickListener {
-                val user = viewModel.user.value.apply {
-                    this?.email = editTextEmail.text.toString()
-                    this?.name = editTextName.text.toString()
-                } ?: User(
-                    email = editTextEmail.text.toString(),
-                    name = editTextName.text.toString()
-                )
-                viewModel.saveUser(user)
+                if (editTextEmail.text.toString().isValidEmail()) {
+                    val user = viewModel.user.value.apply {
+                        this?.email = editTextEmail.text.toString()
+                        this?.name = editTextName.text.toString()
+                    } ?: User(
+                        email = editTextEmail.text.toString(),
+                        name = editTextName.text.toString()
+                    )
+                    viewModel.saveUser(user)
+                } else {
+                    editTextEmail.error = getString(R.string.error_invalid_email)
+                }
             }
         }
     }

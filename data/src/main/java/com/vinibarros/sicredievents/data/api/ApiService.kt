@@ -1,18 +1,17 @@
 package com.vinibarros.sicredievents.data.api
 
+import com.vinibarros.sicredievents.domain.model.Checkin
 import com.vinibarros.sicredievents.domain.model.Event
 import io.reactivex.Single
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
 
-    @FormUrlEncoded
     @POST("checkin")
     fun checkin(
-        @Field("eventId") eventId: String,
-        @Field("name") name: String,
-        @Field("email") email: String
+        @Body params: Checkin
     ): Single<Response<Void>>
 
     @GET("events")

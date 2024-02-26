@@ -1,5 +1,7 @@
 package com.vinibarros.sicredievents.util.extensions
 
+import android.util.Patterns
+
 val accents = mapOf(
     'ª' to 'A',
     'º' to 'O',
@@ -32,6 +34,10 @@ val accents = mapOf(
     'ñ' to 'n',
     'ç' to 'c'
 )
+
+fun String.isValidEmail(): Boolean {
+    return Patterns.EMAIL_ADDRESS.matcher(this).matches()
+}
 
 fun String.removeAccents(): String {
     val sb = java.lang.StringBuilder(this)

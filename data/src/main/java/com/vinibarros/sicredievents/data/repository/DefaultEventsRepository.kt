@@ -18,7 +18,8 @@ class DefaultEventsRepository @Inject constructor(
     }
 
     override suspend fun checkinEvent(event: Event, user: User): Single<Event> {
-        return apiClient.checkin(event, user)
+        apiClient.checkin(event, user)
+        return apiClient.getEvent(event.id)
     }
 
     override suspend fun getEventById(id: String): Single<Event> {

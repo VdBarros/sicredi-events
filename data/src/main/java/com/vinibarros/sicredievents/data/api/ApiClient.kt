@@ -1,6 +1,7 @@
 package com.vinibarros.sicredievents.data.api
 
 import com.vinibarros.sicredievents.data.util.request.RequestHandler
+import com.vinibarros.sicredievents.domain.model.Checkin
 import com.vinibarros.sicredievents.domain.model.Event
 import com.vinibarros.sicredievents.domain.model.User
 import io.reactivex.Single
@@ -18,8 +19,7 @@ class ApiClient @Inject constructor(
         return makeRequest(apiService.getEvent(eventId))
     }
 
-    fun checkin(event: Event, user: User): Single<Event> {
-        makeRequest(apiService.checkin(event.id, user.name, user.email))
-        return getEvent(event.id)
+    fun checkin(event: Event, user: User): Single<Void> {
+        return makeRequest(apiService.checkin(Checkin(event.id, user.email, user.name)))
     }
 }
