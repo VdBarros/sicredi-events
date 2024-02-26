@@ -11,7 +11,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Contacts"
+rootProject.name = "Events"
 include ':presentation'
 include ':data'
 include ':domain'

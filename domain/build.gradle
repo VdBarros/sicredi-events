@@ -1,16 +1,16 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
+    id 'com.google.devtools.ksp'
 }
 
 android {
-    namespace 'com.vinibarros.domain'
-    compileSdk 33
+    namespace 'com.vinibarros.sicredievents.domain'
+    compileSdk 34
 
     defaultConfig {
-        minSdk 24
-        targetSdk 33
+        minSdk 19
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -33,19 +33,19 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.room:room-common:2.5.2'
+    implementation 'androidx.room:room-common:2.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
     testImplementation "io.mockk:mockk:1.9.3"
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1'
 
     // Room
-    def room_version = "2.5.2"
+    def room_version = "2.6.1"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
+    ksp "androidx.room:room-compiler:$room_version"
 
     //rx
     implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
