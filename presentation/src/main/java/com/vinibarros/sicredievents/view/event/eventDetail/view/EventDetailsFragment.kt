@@ -13,7 +13,9 @@ import com.vinibarros.sicredievents.R
 import com.vinibarros.sicredievents.databinding.FragmentEventDetailsBinding
 import com.vinibarros.sicredievents.domain.model.Event
 import com.vinibarros.sicredievents.graph.scope.ViewModelProviderFactory
+import com.vinibarros.sicredievents.util.extensions.errorObserver
 import com.vinibarros.sicredievents.util.extensions.getDate
+import com.vinibarros.sicredievents.util.extensions.loadingObserver
 import com.vinibarros.sicredievents.util.extensions.toCurrency
 import com.vinibarros.sicredievents.view.event.eventDetail.viewModel.EventDetailsViewModel
 import dagger.android.support.DaggerFragment
@@ -46,6 +48,8 @@ class EventDetailsFragment : DaggerFragment() {
 
     private fun subscribeUI() {
         viewModel.event.observe(viewLifecycleOwner, ::onEvent)
+        viewModel.error.observe(viewLifecycleOwner, errorObserver())
+        viewModel.loading.observe(viewLifecycleOwner, loadingObserver(R.id.eventDetailsLoading))
     }
 
     private fun onEvent(event: Event?) {
@@ -60,6 +64,10 @@ class EventDetailsFragment : DaggerFragment() {
             buttonOpenMap.setOnClickListener {
                 openMap(event?.latitude, event?.longitude, event?.title)
             }
+
+            buttonOpenMap.isEnabled = event?.people?.map {
+                    user -> user.email
+            }?.contains(viewModel.user.value?.email) == false
             Picasso
                 .get()
                 .load(event?.image)
@@ -70,8 +78,8 @@ class EventDetailsFragment : DaggerFragment() {
 
     private fun openMap(lat: Double?, lng: Double?, title: String?) {
         try {
-            val mapUri = Uri.parse("geo:0,0?q=$lat,$lng($title)");
-            val mapIntent = Intent(Intent.ACTION_VIEW, mapUri);
+            val mapUri = Uri.parse("geo:0,0?q=$lat,$lng($title)")
+            val mapIntent = Intent(Intent.ACTION_VIEW, mapUri)
             startActivity(mapIntent)
         } catch (_: Exception) {
             Toast.makeText(

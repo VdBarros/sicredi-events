@@ -9,7 +9,7 @@ data class Event(
     val image: String? = null,
     val latitude: Double? = null,
     val longitude: Double? = null,
-    val people: List<Any>,
+    val people: List<User>,
     val price: Double? = null,
     val title: String? = null
 ) : Serializable

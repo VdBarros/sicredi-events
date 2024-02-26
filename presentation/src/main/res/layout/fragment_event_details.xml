@@ -151,6 +151,11 @@
                 app:backgroundTint="@color/colorAccent"
                 app:icon="@drawable/ic_check_white_24dp" />
 
+            <com.vinibarros.sicredievents.util.classes.LoadingView
+                android:id="@+id/eventDetailsLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
         </RelativeLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
